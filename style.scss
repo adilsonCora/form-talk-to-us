@@ -1,0 +1,96 @@
+.contact-form-capt,
+.contact-form {
+  margin-top: 26px;
+
+  &--success {
+    .contact-form__success {
+      display: block;
+    }
+
+    .contact-form__field {
+      display: none;
+    }
+  }
+
+  &--loading {
+    .contact-form__button,
+    .contact-form__button-capt {
+      font-size: 0;
+
+      &:after {
+        @extend .loading-white;
+
+        background-size: cover;
+        content: '';
+        display: inline-block;
+        width: 36px;
+        height: 20px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.contact-form__success {
+  // color: $japaneseLaurel;
+  // border: solid 1px $japaneseLaurel;
+  // background-color: $snowFlurry;
+  font-size: 16px;
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-form__field {
+  margin-bottom: 28px;
+}
+
+.contact-form__input {
+  @include textSmi($cinza02, $primaryFont, 14px, $fontBold, 22px, left);
+  @include letter-spacing(100);
+  @include placeholder {
+    color: $cinza02;
+  }
+
+  width: 100%;
+  padding: 16px 31px 15px;
+  border: 1px solid $corPrimaria;
+  border-radius: 10px;
+
+  &--textarea {
+    resize: vertical;
+  }
+}
+
+div.contact-form__input--error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.contact-form__select {
+  @extend .contact-form__input;
+  @include appearance(none);
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14.96' height='8.377' viewBox='0 0 14.96 8.377'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:none;stroke:%23e42026;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:3px;fill-rule:evenodd;%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M349.5,231l4.76,5.362-4.76,5.362' transform='translate(243.842 -347.382) rotate(90)'/%3E%3C/svg%3E");
+  background-position: calc(100% - 31px) 50%;
+  background-repeat: no-repeat;
+}
+
+.contact-form__button,
+.contact-form__button-capt {
+  @include textSmi($white, $primaryFont, 15px, $fontBold, 20px, center, uppercase);
+  @include letter-spacing(200);
+
+  background-color: $corPrimaria;
+  width: 275px;
+  height: 46px;
+  border: none;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+}
